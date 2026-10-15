@@ -413,7 +413,7 @@ h2{font-size:clamp(40px,6vw,76px);font-weight:700}
 /* naadloos rondlopend kleurverloop (geen knip bij animatie) */
 :root{--grad-loop:linear-gradient(90deg,#00e5ff,#5b6cff,#be46ff,#ff3d9a,#ffa83c,#00e5ff)}
 .btn-glow,.chip.active,.badge{background:var(--grad-loop)!important;background-size:300% 100%!important;animation:flow 6s linear infinite!important}
-.grad,.grad .w,.final-word,.stat b,.price span,.num{background-image:var(--grad-loop)!important;background-size:300% 100%!important;animation:flow 8s linear infinite!important}
+.grad,.grad .w,.final-word,.stat b,.price span,.num{background-image:var(--grad-loop)!important;background-size:300% 100%!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent;animation:flow 8s linear infinite!important}
 @media(max-width:900px){
   /* foto loopt zacht over in de achtergrond */
   .hero-media{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 62%,transparent 100%);margin-bottom:-28px}
