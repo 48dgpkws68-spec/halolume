@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/halo.css?v=7">
+<link rel="stylesheet" href="css/halo.css?v=8">
 </head>
 <body class="go">
 
@@ -26,7 +26,6 @@
 <header class="nav" id="nav">
   <a href="#" class="brand" aria-label="Halolume home"><img src="assets/logo.png" alt="Halolume" height="28"></a>
   <nav class="links">
-    <a href="#aan">Licht aan</a>
     <a href="#demo">Live demo</a>
     <a href="#ontdek">Ontdek</a>
     <a href="#kopen">Kopen</a>
@@ -56,7 +55,7 @@
       <li>⚡ 5 min geplakt</li><li>🎨 24 scènes</li><li>🎵 Muzieksync</li><li>↩ 30 dagen retour</li>
     </ul>
   </div>
-  <a href="#aan" class="scroll-cue" aria-label="Scroll verder"><span></span></a>
+  <a href="#demo" class="scroll-cue" aria-label="Scroll verder"><span></span></a>
 </section>
 
 <!-- MARQUEE -->
@@ -64,26 +63,6 @@
   <span>FILMAVOND</span><b>✦</b><span>GAMEN</span><b>✦</b><span>VOETBAL</span><b>✦</b><span>MUZIEK</span><b>✦</b><span>WINTERAVONDEN</span><b>✦</b><span>SINTERKLAAS</span><b>✦</b><span>KERST</span><b>✦</b>
   <span>FILMAVOND</span><b>✦</b><span>GAMEN</span><b>✦</b><span>VOETBAL</span><b>✦</b><span>MUZIEK</span><b>✦</b><span>WINTERAVONDEN</span><b>✦</b><span>SINTERKLAAS</span><b>✦</b><span>KERST</span><b>✦</b>
 </div></div>
-
-<!-- LICHT AAN: scroll-gestuurde sequentie -->
-<section class="lights" id="aan">
-  <div class="lights-sticky">
-    <div class="lights-stage">
-      <img class="room off" src="img/kamer-uit.webp" alt="Woonkamer met tv, ledstrip uit" loading="lazy">
-      <img class="room on" src="img/kamer-aan.webp" alt="Dezelfde woonkamer met Halolume aan" loading="lazy">
-      <div class="lights-vignette"></div>
-    </div>
-    <div class="lights-copy">
-      <p class="eyebrow mono" id="lightsStep">01 / 03</p>
-      <div class="lights-lines">
-        <h2 class="ll active">Gewone tv.<br><span class="muted">Gewone avond.</span></h2>
-        <h2 class="ll">Eén strip.<br><span class="grad">Eén sensor.</span></h2>
-        <h2 class="ll">Je woonkamer<br><span class="serif">doet mee.</span></h2>
-      </div>
-      <div class="lights-meter"><i id="lightsMeter"></i></div>
-    </div>
-  </div>
-</section>
 
 <!-- LIVE DEMO -->
 <section class="section demo" id="demo">
@@ -103,10 +82,11 @@
       <div class="stand"></div>
     </div>
     <div class="floor"></div>
-    <div class="demo-hud mono"><span id="hudScene">FILM</span><span id="hudHex">#5B6CFF</span><span class="rec">● SYNC</span></div>
+    <div class="demo-hud mono"><span id="hudScene">KLEUREN</span><span id="hudHex">#5B6CFF</span><span class="rec">● SYNC</span></div>
   </div>
   <div class="chips reveal" role="tablist">
-    <button class="chip active" data-scene="film">🎬 Film</button>
+    <button class="chip active" data-scene="kleur">🌈 Kleuren</button>
+    <button class="chip" data-scene="film">🎬 Film</button>
     <button class="chip" data-scene="game">🎮 Gamen</button>
     <button class="chip" data-scene="sport">⚽ Voetbal</button>
     <button class="chip" data-scene="music">🎵 Muziek</button>
@@ -305,6 +285,6 @@
 
 <div class="sticky-buy" id="stickyBuy"><span>Halolume · <b data-price="single">€29,99</b></span><a href="#kopen" class="btn btn-glow btn-small">Bestellen</a></div>
 
-<script src="js/main.js?v=7"></script>
+<script src="js/main.js?v=8"></script>
 </body>
 </html>

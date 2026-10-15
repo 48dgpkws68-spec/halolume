@@ -66,8 +66,22 @@
 
   // ---------- live sync-demo ----------
   const cv = $("#screen"), ctx = cv.getContext("2d", { willReadFrequently: true }), W = cv.width, H = cv.height;
-  let scene = "film", st = 0, cur = [235, 100, 55], demoVisible = true;
+  let scene = "kleur", st = 0, cur = [235, 100, 55], demoVisible = true;
   const scenes = {
+    kleur(t) { // ronddraaiend kleurenwiel: de strip volgt de hoofdkleur
+      const hue = (t * 45) % 360;
+      ctx.fillStyle = `hsl(${hue},90%,45%)`; ctx.fillRect(0, 0, W, H);
+      ctx.save(); ctx.translate(W / 2, H / 2); ctx.rotate(t * 0.9);
+      for (let i = 0; i < 12; i++) {
+        ctx.rotate(Math.PI / 6);
+        ctx.fillStyle = `hsla(${(hue + i * 12) % 360},100%,${50 + (i % 2) * 10}%,.55)`;
+        ctx.beginPath(); ctx.moveTo(0, 0); ctx.arc(0, 0, W, 0, Math.PI / 6); ctx.fill();
+      }
+      ctx.restore();
+      const g = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, H * 0.45);
+      g.addColorStop(0, "rgba(255,255,255,.55)"); g.addColorStop(1, "transparent");
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    },
     film(t) {
       const p = (t % 12) / 12, night = p > 0.5;
       const sky = ctx.createLinearGradient(0, 0, 0, H), hue = 20 + Math.sin(t * 0.3) * 20 + (night ? 200 : 0);
@@ -139,7 +153,7 @@
     return "#" + [f(0), f(8), f(4)].map((v) => v.toString(16).padStart(2, "0")).join("").toUpperCase();
   }
   new IntersectionObserver((es) => (demoVisible = es[0].isIntersecting)).observe($("#stage"));
-  const names = { film: "FILM", game: "GAMEN", sport: "VOETBAL", music: "MUZIEK", cozy: "HAARDVUUR" };
+  const names = { kleur: "KLEUREN", film: "FILM", game: "GAMEN", sport: "VOETBAL", music: "MUZIEK", cozy: "HAARDVUUR" };
   let auto = setInterval(() => {
     const k = Object.keys(scenes); scene = k[(k.indexOf(scene) + 1) % k.length]; hudScene.textContent = names[scene];
     $$(".chip").forEach((x) => x.classList.toggle("active", x.dataset.scene === scene));
@@ -153,6 +167,7 @@
   // ---------- licht aan (sticky scroll) ----------
   const lights = $("#aan"), roomOn = $(".room.on"), roomOff = $(".room.off"), lls = $$(".ll"), lStep = $("#lightsStep"), lMeter = $("#lightsMeter");
   function lightsScroll() {
+    if (!lights) return;
     const r = lights.getBoundingClientRect(), p = clamp(-r.top / (r.height - innerHeight));
     const on = smooth(clamp((p - 0.3) / 0.4));
     roomOn.style.opacity = on;
