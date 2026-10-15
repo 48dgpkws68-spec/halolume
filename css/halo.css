@@ -363,18 +363,19 @@ h2{font-size:clamp(40px,6vw,76px);font-weight:700}
   .section::before{content:"";position:absolute;top:36px;left:16px;right:16px;height:2px;border-radius:2px;
     background:linear-gradient(90deg,transparent,#00e5ff,#be46ff,#ff3d9a,#ffa83c,transparent);background-size:300% 100%;animation:flow 4s linear infinite;opacity:.8}
 
-  /* kaarten met bewegende regenboogrand */
-  .card,.stat,.room-card,.ba,.hotspots,.demo-stage,.gift-card,.mood-card{border:1.5px solid transparent;
-    background:linear-gradient(rgba(12,12,24,.92),rgba(12,12,24,.92)) padding-box,linear-gradient(90deg,#00e5ff,#5b6cff,#be46ff,#ff3d9a,#ffa83c,#00e5ff) border-box;
-    background-size:100% 100%,300% 100%;animation:flow 6s linear infinite}
-  .demo-stage{background:radial-gradient(120% 100% at 50% 20%,#15152a,#05050c 70%) padding-box,linear-gradient(90deg,#00e5ff,#5b6cff,#be46ff,#ff3d9a,#ffa83c,#00e5ff) border-box;background-size:100% 100%,300% 100%}
+  /* kaarten met bewegende regenboogrand (mask-techniek, werkt in iOS Safari) */
+  .card,.stat,.room-card,.ba,.hotspots,.demo-stage,.gift-card,.mood-card,.nav,.sticky-buy,.hs-list li{position:relative;border-color:rgba(255,255,255,.06)}
+  .nav{position:fixed}.sticky-buy{position:fixed}
+  .card::after,.stat::after,.room-card::after,.ba::after,.hotspots::after,.demo-stage::after,.gift-card::after,.mood-card::after,.nav::after,.sticky-buy::after{
+    content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;z-index:3;
+    background:linear-gradient(90deg,#00e5ff,#5b6cff,#be46ff,#ff3d9a,#ffa83c,#00e5ff);background-size:300% 100%;animation:flow 6s linear infinite;
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+  .nav{background:rgba(8,8,18,.94)}
+  .sticky-buy{background:rgba(10,10,20,.96)}
   .featured{box-shadow:0 0 40px -10px #be46ff}
-  .hs-list li{border:1px solid rgba(255,255,255,.08);background:linear-gradient(135deg,rgba(0,229,255,.10),rgba(190,70,255,.10),rgba(255,61,154,.10));background-size:200% 200%;animation:flow 8s linear infinite}
-
-  /* knoppen: kleurende gloed die ademt */
+  .hs-list li{background:linear-gradient(135deg,rgba(0,229,255,.12),rgba(190,70,255,.12),rgba(255,61,154,.12));background-size:200% 200%;animation:flow 8s linear infinite}
   .btn-glow{box-shadow:0 8px 30px -6px #be46ff;animation:shift 4s linear infinite}
-  .sticky-buy{border:1.5px solid transparent;background:linear-gradient(rgba(10,10,20,.96),rgba(10,10,20,.96)) padding-box,linear-gradient(90deg,#00e5ff,#be46ff,#ff3d9a,#ffa83c,#00e5ff) border-box;background-size:100% 100%,300% 100%;animation:flow 5s linear infinite}
-  .nav{border:1px solid transparent;background:linear-gradient(rgba(8,8,18,.94),rgba(8,8,18,.94)) padding-box,linear-gradient(90deg,#00e5ff,#be46ff,#ff3d9a,#ffa83c,#00e5ff) border-box;background-size:100% 100%,300% 100%;animation:flow 7s linear infinite}
+  .hero-chips li{border-color:rgba(255,255,255,.14);background:rgba(12,12,24,.85)}
 
   /* stats en prijzen in regenboog */
   .stat b,.price span,.num{background:var(--grad);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 5s linear infinite}
@@ -384,3 +385,16 @@ h2{font-size:clamp(40px,6vw,76px);font-weight:700}
   .swatches button:nth-child(2n){animation-delay:-1.5s}
 }
 @media(max-width:900px) and (prefers-reduced-motion:reduce){.orbs,.hero::before{display:none}}
+
+@media(max-width:900px){
+  /* gradient-tekst: ook op de losse woorden (iOS toont anders niets) */
+  .grad .w{background:var(--grad);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shift 7s linear infinite}
+  /* hero: product groot bovenaan, tekst eronder */
+  .hero{display:block;min-height:auto;padding:84px 16px 40px}
+  .hero::before{left:50%;top:210px}
+  .hero-media{position:relative;inset:auto;z-index:0;margin:0 -16px 18px;aspect-ratio:1672/941;overflow:hidden}
+  .hero-media img{object-position:center;transform:none!important}
+  .hero-media::after{background:linear-gradient(0deg,var(--bg) 2%,rgba(5,5,12,0) 38%),linear-gradient(180deg,var(--bg) 0%,rgba(5,5,12,0) 18%)}
+  .hero-copy{position:relative;z-index:1}
+  .scroll-cue{display:none}
+}
