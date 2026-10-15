@@ -421,3 +421,13 @@ h2{font-size:clamp(40px,6vw,76px);font-weight:700}
   .hero::before{top:120px;opacity:.28}
   .eyebrow{background-image:var(--grad-loop);background-size:300% 100%}
 }
+
+@media(max-width:900px){.orbs i:nth-child(2){background:radial-gradient(circle,color-mix(in srgb,var(--mood) 70%,transparent),transparent 65%);transition:background .6s}}
+@media(max-width:900px){
+  .footer nav{gap:4px 8px}
+  .footer nav a{display:inline-block;padding:12px 10px}
+  .footer{font-size:15px}
+  .eyebrow{font-size:12px}
+}
+
+@media(max-width:900px){.legal-body{padding-top:120px}}

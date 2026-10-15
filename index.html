@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/halo.css?v=12">
+<link rel="stylesheet" href="css/halo.css?v=13">
 </head>
 <body class="go">
 
@@ -52,7 +52,7 @@
       <a href="#demo" class="btn btn-ghost magnet">▶ Bekijk live</a>
     </div>
     <ul class="hero-chips">
-      <li>⚡ 5 min geplakt</li><li>🎨 24 scènes</li><li>🎵 Muzieksync</li><li>↩ 30 dagen retour</li>
+      <li>⚡ 5 min geplakt</li><li>🌈 Kleurt per zone</li><li>🎵 Muzieksync</li><li>↩ 30 dagen retour</li>
     </ul>
   </div>
   <a href="#demo" class="scroll-cue" aria-label="Scroll verder"><span></span></a>
@@ -117,10 +117,10 @@
   </div>
   <div class="hotspots reveal">
     <img src="img/hero.webp" alt="Onderdelen van Halolume" loading="lazy">
-    <button class="hs" style="left:47%;top:50%" data-t="Kleursensor" data-d="Zet je midden bovenop je tv. Leest het beeld in zones en stuurt elk stuk strip apart aan."><i></i></button>
-    <button class="hs" style="left:72%;top:28%" data-t="Ledstrip 4 of 5 m" data-d="Zelfklevend en op maat te knippen. Past om tv's van 55 tot 75 inch."><i></i></button>
-    <button class="hs" style="left:66%;top:66%" data-t="Afstandsbediening" data-d="Kleur, helderheid en modus kiezen zonder je telefoon."><i></i></button>
-    <button class="hs" style="left:88%;top:60%" data-t="USB-stroom" data-d="Steek hem in de USB-poort van je tv: gaat aan en uit met je tv."><i></i></button>
+    <button class="hs" aria-label="Zone-sensor" style="left:47%;top:50%" data-t="Kleursensor" data-d="Zet je midden bovenop je tv. Leest het beeld in zones en stuurt elk stuk strip apart aan."><i></i></button>
+    <button class="hs" aria-label="Ledstrip" style="left:72%;top:28%" data-t="Ledstrip 4 of 5 m" data-d="Zelfklevend en op maat te knippen. Past om tv's van 55 tot 75 inch."><i></i></button>
+    <button class="hs" aria-label="Afstandsbediening" style="left:66%;top:66%" data-t="Afstandsbediening" data-d="Kleur, helderheid en modus kiezen zonder je telefoon."><i></i></button>
+    <button class="hs" aria-label="USB-stroom" style="left:88%;top:60%" data-t="USB-stroom" data-d="Steek hem in de USB-poort van je tv: gaat aan en uit met je tv."><i></i></button>
     <div class="hs-card" id="hsCard"><b></b><p></p></div>
   </div>
   <ul class="hs-list reveal">
@@ -134,9 +134,9 @@
 <!-- STATS -->
 <section class="section stats reveal">
   <div class="stat"><b data-count="5">0</b><span>minuten installatie</span></div>
-  <div class="stat"><b data-count="24">0</b><span>lichtscènes</span></div>
-  <div class="stat"><b data-count="6">0</b><span>muziekeffecten</span></div>
-  <div class="stat"><b data-count="50000" data-fmt="k">0</b><span>uur levensduur</span></div>
+  <div class="stat"><b data-count="2">0</b><span>maten: 4 en 5 meter</span></div>
+  <div class="stat"><b data-count="30">0</b><span>dagen bedenktijd</span></div>
+  <div class="stat"><b>€0</b><span>verzendkosten NL en BE</span></div>
 </section>
 
 <!-- KAMERS: horizontaal scrollen -->
@@ -160,7 +160,7 @@
     <div>
       <p class="eyebrow">Probeer het</p>
       <h2>Welke sfeer<br><span class="grad">wordt het?</span></h2>
-      <p class="sub">Tik een kleur aan en zie hoe de hele pagina meekleurt. Zo voelt jouw kamer straks.</p>
+      <p class="sub">Tik een kleur aan en zie de pagina meekleuren. Zo voelt jouw kamer straks.</p>
     </div>
     <div class="swatches" id="swatches">
       <button style="--c:#00e5ff" data-c="#00e5ff" aria-label="IJsblauw"></button>
@@ -200,7 +200,7 @@
       <div><dt>Lengte</dt><dd>4 m (55 tot 65 inch) of 5 m (65 tot 75 inch)</dd></div>
       <div><dt>Sync</dt><dd>Zone-sensor op de tv: elke kant van de strip volgt de kleur van dat deel van het beeld</dd></div>
       <div><dt>Bediening</dt><dd>Via de app en de afstandsbediening</dd></div>
-      <div><dt>Effecten</dt><dd>24 lichtscènes · 6 muziekeffecten</dd></div>
+      <div><dt>Effecten</dt><dd>Zone-sync, muziekmodus en vaste lichtscènes via de app</dd></div>
       <div><dt>Stroom</dt><dd>USB, via de USB-poort van je tv</dd></div>
       <div><dt>Montage</dt><dd>Zelfklevend, op maat te knippen</dd></div>
     </dl>
@@ -237,7 +237,7 @@
       <a class="btn btn-glow buy" data-pack="duo" href="#">In winkelmand</a>
     </article>
   </div>
-  <p class="fine">Prijzen inclusief btw. Bestel voor 1 december, dan heb je hem op tijd voor Sinterklaas.</p>
+  <p class="fine">Prijzen inclusief btw. Bestel op tijd voor Sinterklaas en kerst.</p>
 </section>
 
 <!-- CADEAU -->
@@ -263,7 +263,7 @@
     <details class="card reveal"><summary>Werkt het met Netflix en apps op mijn smart-tv?</summary><p>Ja. De sensor kijkt naar het scherm zelf, dus het maakt niet uit waar het beeld vandaan komt: apps, decoder, console of laptop.</p></details>
     <details class="card reveal"><summary>Kleurt elk stukje van de strip apart mee?</summary><p>Ja. De sensor leest het beeld in meerdere zones. Staat er links iets geels en rechts iets paars, dan kleurt de strip links geel en rechts paars.</p></details>
     <details class="card reveal"><summary>Welke maat heb ik nodig?</summary><p>Voor 55 tot 65 inch kies je 4 meter, voor 65 tot 75 inch 5 meter. Te lang is geen probleem, de strip is op maat te knippen.</p></details>
-    <details class="card reveal"><summary>Hoe snel heb ik het in huis?</summary><p>We verzenden zo snel mogelijk. De actuele levertijd zie je bij het afrekenen.</p></details>
+    <details class="card reveal"><summary>Hoe snel heb ik het in huis?</summary><p>We verzenden zo snel mogelijk. Zodra je pakket onderweg is, krijg je een mail met de track-and-trace-code.</p></details>
     <details class="card reveal"><summary>Kan ik het terugsturen?</summary><p>Je hebt 30 dagen bedenktijd. Lees de voorwaarden op de <a href="retourneren.html">retourpagina</a>.</p></details>
     <details class="card reveal"><summary>Heb ik een app nodig?</summary><p>Met de gratis app stel je kleuren, scènes en de sync in. Je kunt ook veel met de afstandsbediening doen.</p></details>
   </div>
@@ -286,6 +286,6 @@
 
 <div class="sticky-buy" id="stickyBuy"><span>Halolume · <b data-price="single">€29,99</b></span><a href="#kopen" class="btn btn-glow btn-small">Bestellen</a></div>
 
-<script src="js/main.js?v=12"></script>
+<script src="js/main.js?v=13"></script>
 </body>
 </html>
