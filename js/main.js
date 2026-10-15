@@ -6,11 +6,11 @@
   const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
   const smooth = (t) => t * t * (3 - 2 * t);
 
-  // Shopify-winkel 3: vul domein en variant-ID's in zodra de producten bestaan
-  const SHOP = "https://[SHOPIFY-DOMEIN].myshopify.com";
+  // Shopify-winkel 3 (0f76bd-xw), product 16083980616011
+  const SHOP = "https://0f76bd-xw.myshopify.com";
   const PRODUCTS = {
-    "4m": { single: { price: 29.99, variant: "[VARIANT-4M]", qty: 1 }, duo: { price: 49.99, variant: "[VARIANT-4M]", qty: 2 } },
-    "5m": { single: { price: 34.99, variant: "[VARIANT-5M]", qty: 1 }, duo: { price: 59.99, variant: "[VARIANT-5M]", qty: 2 } },
+    "4m": { single: { price: 29.99, variant: "58852759667019", qty: 1 }, duo: { price: 49.99, variant: "58852759699787", qty: 1 } },
+    "5m": { single: { price: 29.99, variant: "58852759732555", qty: 1 }, duo: { price: 49.99, variant: "58852759765323", qty: 1 } },
   };
   const eur = (n) => "€" + n.toFixed(2).replace(".", ",");
 
