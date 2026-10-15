@@ -409,3 +409,15 @@ h2{font-size:clamp(40px,6vw,76px);font-weight:700}
 .zB{left:6%;bottom:-24%;width:88%;height:40%;background:var(--zB)}
 .tv{z-index:1}
 @media(max-width:900px){.zone{filter:blur(22px)}.zL{left:-10%}.zR{right:-10%}}
+
+/* naadloos rondlopend kleurverloop (geen knip bij animatie) */
+:root{--grad-loop:linear-gradient(90deg,#00e5ff,#5b6cff,#be46ff,#ff3d9a,#ffa83c,#00e5ff)}
+.btn-glow,.chip.active,.badge{background:var(--grad-loop)!important;background-size:300% 100%!important;animation:flow 6s linear infinite!important}
+.grad,.grad .w,.final-word,.stat b,.price span,.num{background-image:var(--grad-loop)!important;background-size:300% 100%!important;animation:flow 8s linear infinite!important}
+@media(max-width:900px){
+  /* foto loopt zacht over in de achtergrond */
+  .hero-media{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 14%,#000 62%,transparent 100%);margin-bottom:-28px}
+  .hero-media::after{display:none}
+  .hero::before{top:120px;opacity:.28}
+  .eyebrow{background-image:var(--grad-loop);background-size:300% 100%}
+}
