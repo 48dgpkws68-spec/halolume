@@ -3,6 +3,7 @@
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const root = document.documentElement;
   const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const MOBILE = matchMedia("(max-width: 900px)").matches;
   const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
   const smooth = (t) => t * t * (3 - 2 * t);
 
@@ -165,6 +166,7 @@
   // ---------- kamers horizontaal ----------
   const rooms = $("#kamers"), track = $("#roomsTrack");
   function roomsScroll() {
+    if (MOBILE) return;
     const r = rooms.getBoundingClientRect(), p = clamp(-r.top / (r.height - innerHeight));
     const max = track.scrollWidth - innerWidth + 48;
     track.style.transform = `translateX(${-p * Math.max(0, max)}px)`;
@@ -177,18 +179,22 @@
     const y = scrollY, h = document.body.scrollHeight - innerHeight;
     prog.style.width = (y / h) * 100 + "%";
     nav.classList.toggle("hide", y > 400 && y > lastY + 4); if (y < lastY - 4 || y < 400) nav.classList.remove("hide"); lastY = y;
-    if (y < innerHeight * 1.2 && document.body.classList.contains("go")) heroImg.style.transform = `translateY(${y * 0.18}px) scale(${1 + y * 0.0002})`;
+    if (!MOBILE && y < innerHeight * 1.2 && document.body.classList.contains("go")) heroImg.style.transform = `translateY(${y * 0.18}px) scale(${1 + y * 0.0002})`;
     lightsScroll(); roomsScroll();
     const k = $("#kopen").getBoundingClientRect();
     $("#stickyBuy").classList.toggle("show", y > 700 && !(k.top < innerHeight && k.bottom > 0));
   }
-  addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", onScroll);
+  let ticking = false;
+  const onScrollRaf = () => { if (ticking) return; ticking = true; requestAnimationFrame(() => { ticking = false; onScroll(); }); };
+  addEventListener("scroll", onScrollRaf, { passive: true }); addEventListener("resize", onScrollRaf);
 
   // ---------- hoofdlus ----------
   let last = 0;
   function loop(ts) {
-    aurora(ts);
-    cx += (mx - cx) * 0.12; cy += (my - cy) * 0.12; cg.style.transform = `translate(${cx}px,${cy}px)`;
+    if (!MOBILE) {
+      aurora(ts);
+      cx += (mx - cx) * 0.12; cy += (my - cy) * 0.12; cg.style.transform = `translate(${cx}px,${cy}px)`;
+    }
     if (demoVisible) {
       st += Math.min(0.05, (ts - last) / 1000 || 0.016);
       scenes[scene](st);

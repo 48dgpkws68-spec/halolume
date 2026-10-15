@@ -14,7 +14,8 @@
     document.body.classList.add('go');
     setTimeout(function () { box.hidden = true; running = false; cancelAnimationFrame(raf); }, 900);
   }
-  if (RM || seen) { box.hidden = true; document.body.classList.add('go'); return; }
+  var MOBILE = matchMedia('(max-width: 900px)').matches;
+  if (RM || seen || MOBILE) { box.hidden = true; document.body.classList.add('go'); return; }
   document.documentElement.classList.add('lock');
   box.querySelector('.skip').addEventListener('click', finish);
   addEventListener('keydown', function (e) { if (e.key === 'Escape' && running) finish(); });

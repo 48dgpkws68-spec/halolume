@@ -14,41 +14,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/halo.css">
+<link rel="stylesheet" href="css/halo.css?v=4">
 </head>
-<body>
+<body class="go">
 
-<!-- INTRO-FILM -->
-<div class="intro" aria-hidden="true">
-  <canvas></canvas>
-  <div class="bar"><i></i></div>
-  <button class="skip" type="button">Overslaan ›</button>
-</div>
-
-<canvas id="aurora" aria-hidden="true"></canvas>
-<div class="cursor-glow" aria-hidden="true"></div>
-<div class="progress" aria-hidden="true"><i></i></div>
-
-<header class="nav" id="nav">
-  <a href="#" class="brand" aria-label="Halolume home"><img src="assets/logo.png" alt="Halolume" height="28"></a>
-  <nav class="links">
-    <a href="#aan">Licht aan</a>
-    <a href="#demo">Live demo</a>
-    <a href="#ontdek">Ontdek</a>
-    <a href="#kopen">Kopen</a>
-    <a href="#faq">Vragen</a>
-  </nav>
-  <a href="#kopen" class="btn btn-white btn-small">Bestel · €29,99</a>
-</header>
-
-<main>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-media" data-parallax="0.15">
-    <img src="img/hero.webp" alt="Halolume ledstrip met kleursensor en afstandsbediening" fetchpriority="high">
-    <div class="hero-sweep"></div>
-  </div>
   <div class="hero-copy">
     <p class="eyebrow"><span class="dot"></span> Nieuw · voor tv's van 55 tot 75 inch</p>
     <h1 class="split">Je tv,<br><span class="grad">maar dan</span><br><span class="serif">sfeervoller.</span></h1>
@@ -147,6 +116,12 @@
     <button class="hs" style="left:88%;top:60%" data-t="USB-stroom" data-d="Steek hem in de USB-poort van je tv: gaat aan en uit met je tv."><i></i></button>
     <div class="hs-card" id="hsCard"><b></b><p></p></div>
   </div>
+  <ul class="hs-list reveal">
+    <li><b>Kleursensor</b><span>Midden bovenop je tv. Meet de kleur van het beeld.</span></li>
+    <li><b>Ledstrip 4 of 5 m</b><span>Zelfklevend, op maat te knippen.</span></li>
+    <li><b>Afstandsbediening</b><span>Kleur en modus kiezen zonder telefoon.</span></li>
+    <li><b>USB-stroom</b><span>Gaat aan en uit met je tv.</span></li>
+  </ul>
 </section>
 
 <!-- STATS -->
@@ -299,12 +274,11 @@
   <img src="assets/logo.png" alt="Halolume" height="26">
   <p>Halolume is een handelsnaam van 4NEON.</p>
   <nav><a href="contact.html">Contact</a><a href="voorwaarden.html">Voorwaarden</a><a href="privacy.html">Privacy</a><a href="retourneren.html">Retourneren</a></nav>
-  <p class="copy">© 2026 Halolume · <a href="#" id="replayIntro">Intro opnieuw</a></p>
+  <p class="copy">© 2026 Halolume</p>
 </footer>
 
 <div class="sticky-buy" id="stickyBuy"><span>Halolume · <b data-price="single">€29,99</b></span><a href="#kopen" class="btn btn-glow btn-small">Bestellen</a></div>
 
-<script src="js/intro.js"></script>
-<script src="js/main.js"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>
