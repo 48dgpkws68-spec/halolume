@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/halo.css?v=8">
+<link rel="stylesheet" href="css/halo.css?v=10">
 </head>
 <body class="go">
 
@@ -46,7 +46,7 @@
   <div class="hero-copy">
     <p class="eyebrow"><span class="dot"></span> Nieuw · voor tv's van 55 tot 75 inch</p>
     <h1 class="split">Je tv,<br><span class="grad">maar dan</span><br><span class="serif">sfeervoller.</span></h1>
-    <p class="lead">Een ledstrip achter je tv met een slimme kleursensor. Het licht op je muur kleurt mee met wat je kijkt.</p>
+    <p class="lead">Een ledstrip achter je tv met een slimme zone-sensor. Elke kant van het licht op je muur kleurt mee met wat je kijkt.</p>
     <div class="cta-row">
       <a href="#kopen" class="btn btn-glow magnet">Bestel nu · €29,99</a>
       <a href="#demo" class="btn btn-ghost magnet">▶ Bekijk live</a>
@@ -69,12 +69,13 @@
   <div class="section-head reveal">
     <p class="eyebrow">Live demo · dit draait echt</p>
     <h2>Kies wat je kijkt.<br><span class="grad">Halolume kleurt mee.</span></h2>
-    <p class="sub">De gloed om deze tv wordt live berekend uit de kleuren op het scherm. Zo werkt de sensor van Halolume ook.</p>
+    <p class="sub">Elke kant van de gloed volgt live de kleur van dat deel van het scherm. Zo werkt de zone-sensor van Halolume ook.</p>
   </div>
   <div class="demo-stage reveal" id="stage">
     <div class="demo-wall"></div>
     <div class="tv-wrap">
       <div class="halo" id="halo"></div>
+      <div class="zone zT"></div><div class="zone zR"></div><div class="zone zB"></div><div class="zone zL"></div>
       <div class="tv">
         <canvas id="screen" width="480" height="270" aria-label="Demo tv-beeld"></canvas>
         <div class="sensor" title="Kleursensor"></div>
@@ -116,14 +117,14 @@
   </div>
   <div class="hotspots reveal">
     <img src="img/hero.webp" alt="Onderdelen van Halolume" loading="lazy">
-    <button class="hs" style="left:47%;top:50%" data-t="Kleursensor" data-d="Zet je midden bovenop je tv. Meet de kleur van het beeld en stuurt de strip direct aan."><i></i></button>
+    <button class="hs" style="left:47%;top:50%" data-t="Kleursensor" data-d="Zet je midden bovenop je tv. Leest het beeld in zones en stuurt elk stuk strip apart aan."><i></i></button>
     <button class="hs" style="left:72%;top:28%" data-t="Ledstrip 4 of 5 m" data-d="Zelfklevend en op maat te knippen. Past om tv's van 55 tot 75 inch."><i></i></button>
     <button class="hs" style="left:66%;top:66%" data-t="Afstandsbediening" data-d="Kleur, helderheid en modus kiezen zonder je telefoon."><i></i></button>
     <button class="hs" style="left:88%;top:60%" data-t="USB-stroom" data-d="Steek hem in de USB-poort van je tv: gaat aan en uit met je tv."><i></i></button>
     <div class="hs-card" id="hsCard"><b></b><p></p></div>
   </div>
   <ul class="hs-list reveal">
-    <li><b>Kleursensor</b><span>Midden bovenop je tv. Meet de kleur van het beeld.</span></li>
+    <li><b>Zone-sensor</b><span>Midden bovenop je tv. Leest het beeld per zone.</span></li>
     <li><b>Ledstrip 4 of 5 m</b><span>Zelfklevend, op maat te knippen.</span></li>
     <li><b>Afstandsbediening</b><span>Kleur en modus kiezen zonder telefoon.</span></li>
     <li><b>USB-stroom</b><span>Gaat aan en uit met je tv.</span></li>
@@ -182,8 +183,8 @@
   </div>
   <ol class="steps">
     <li class="card step tilt reveal"><span class="num">01</span><h3>Plakken</h3><p>Plak de strip langs de achterkant van je tv. Te lang? Knip hem op maat bij de markering.</p></li>
-    <li class="card step tilt reveal"><span class="num">02</span><h3>Sensor plaatsen</h3><p>Zet de kleine sensor midden bovenop je scherm, gericht op het beeld.</p></li>
-    <li class="card step tilt reveal"><span class="num">03</span><h3>Aanzetten</h3><p>USB in je tv, koppel de app via Bluetooth en kies je modus.</p></li>
+    <li class="card step tilt reveal"><span class="num">02</span><h3>Sensor plaatsen</h3><p>Zet de kleine zone-sensor midden bovenop je scherm, gericht op het beeld.</p></li>
+    <li class="card step tilt reveal"><span class="num">03</span><h3>Aanzetten</h3><p>USB in je tv, koppel de app en kies je modus.</p></li>
   </ol>
 </section>
 
@@ -197,8 +198,8 @@
     </div>
     <dl class="spec-list">
       <div><dt>Lengte</dt><dd>4 m (55 tot 65 inch) of 5 m (65 tot 75 inch)</dd></div>
-      <div><dt>Sync</dt><dd>Kleursensor op de tv, neemt de hoofdkleur van het beeld over</dd></div>
-      <div><dt>Bediening</dt><dd>App via Bluetooth en afstandsbediening</dd></div>
+      <div><dt>Sync</dt><dd>Zone-sensor op de tv: elke kant van de strip volgt de kleur van dat deel van het beeld</dd></div>
+      <div><dt>Bediening</dt><dd>Via de app en de afstandsbediening</dd></div>
       <div><dt>Effecten</dt><dd>24 lichtscènes · 6 muziekeffecten</dd></div>
       <div><dt>Stroom</dt><dd>USB, via de USB-poort van je tv</dd></div>
       <div><dt>Montage</dt><dd>Zelfklevend, op maat te knippen</dd></div>
@@ -223,7 +224,7 @@
       <h3>Halolume</h3>
       <p class="for">Voor je woonkamer</p>
       <p class="price"><span data-price="single">€29,99</span></p>
-      <ul><li>1 ledstrip met sensor</li><li>Afstandsbediening</li><li>Gratis verzending</li></ul>
+      <ul><li>1 ledstrip met zone-sensor</li><li>Afstandsbediening</li><li>Gratis verzending</li></ul>
       <a class="btn btn-ghost buy" data-pack="single" href="#">In winkelmand</a>
     </article>
     <article class="offer card featured tilt reveal">
@@ -232,7 +233,7 @@
       <h3>Halolume Duo</h3>
       <p class="for">Woonkamer + slaapkamer of game-setup</p>
       <p class="price"><span data-price="duo">€49,99</span> <small>je bespaart <span data-save>€9,99</span></small></p>
-      <ul><li>2 ledstrips met sensor</li><li>2 afstandsbedieningen</li><li>Gratis verzending</li></ul>
+      <ul><li>2 ledstrips met zone-sensor</li><li>2 afstandsbedieningen</li><li>Gratis verzending</li></ul>
       <a class="btn btn-glow buy" data-pack="duo" href="#">In winkelmand</a>
     </article>
   </div>
@@ -260,11 +261,11 @@
   </div>
   <div class="faq">
     <details class="card reveal"><summary>Werkt het met Netflix en apps op mijn smart-tv?</summary><p>Ja. De sensor kijkt naar het scherm zelf, dus het maakt niet uit waar het beeld vandaan komt: apps, decoder, console of laptop.</p></details>
-    <details class="card reveal"><summary>Kleurt elk stukje van de strip apart mee?</summary><p>Nee. Halolume neemt de hoofdkleur van je beeld over, dus de hele strip kleurt in één keer mee. Dat geeft een rustig en sfeervol effect.</p></details>
+    <details class="card reveal"><summary>Kleurt elk stukje van de strip apart mee?</summary><p>Ja. De sensor leest het beeld in meerdere zones. Staat er links iets geels en rechts iets paars, dan kleurt de strip links geel en rechts paars.</p></details>
     <details class="card reveal"><summary>Welke maat heb ik nodig?</summary><p>Voor 55 tot 65 inch kies je 4 meter, voor 65 tot 75 inch 5 meter. Te lang is geen probleem, de strip is op maat te knippen.</p></details>
     <details class="card reveal"><summary>Hoe snel heb ik het in huis?</summary><p>We verzenden zo snel mogelijk. De actuele levertijd zie je bij het afrekenen.</p></details>
     <details class="card reveal"><summary>Kan ik het terugsturen?</summary><p>Je hebt 30 dagen bedenktijd. Lees de voorwaarden op de <a href="retourneren.html">retourpagina</a>.</p></details>
-    <details class="card reveal"><summary>Heb ik wifi nodig?</summary><p>Nee, de app werkt via Bluetooth. Je kunt ook alles met de afstandsbediening doen.</p></details>
+    <details class="card reveal"><summary>Heb ik een app nodig?</summary><p>Met de gratis app stel je kleuren, scènes en de sync in. Je kunt ook veel met de afstandsbediening doen.</p></details>
   </div>
 </section>
 
@@ -285,6 +286,6 @@
 
 <div class="sticky-buy" id="stickyBuy"><span>Halolume · <b data-price="single">€29,99</b></span><a href="#kopen" class="btn btn-glow btn-small">Bestellen</a></div>
 
-<script src="js/main.js?v=8"></script>
+<script src="js/main.js?v=10"></script>
 </body>
 </html>

@@ -68,18 +68,14 @@
   const cv = $("#screen"), ctx = cv.getContext("2d", { willReadFrequently: true }), W = cv.width, H = cv.height;
   let scene = "kleur", st = 0, cur = [235, 100, 55], demoVisible = true;
   const scenes = {
-    kleur(t) { // ronddraaiend kleurenwiel: de strip volgt de hoofdkleur
-      const hue = (t * 45) % 360;
-      ctx.fillStyle = `hsl(${hue},90%,45%)`; ctx.fillRect(0, 0, W, H);
-      ctx.save(); ctx.translate(W / 2, H / 2); ctx.rotate(t * 0.9);
-      for (let i = 0; i < 12; i++) {
-        ctx.rotate(Math.PI / 6);
-        ctx.fillStyle = `hsla(${(hue + i * 12) % 360},100%,${50 + (i % 2) * 10}%,.55)`;
-        ctx.beginPath(); ctx.moveTo(0, 0); ctx.arc(0, 0, W, 0, Math.PI / 6); ctx.fill();
-      }
+    kleur(t) { // vier felle kleurvlakken draaien rond; elke zone volgt zijn eigen kant
+      const cols = ["#ffd400", "#b100ff", "#00e5ff", "#ff2d55"];
+      ctx.save(); ctx.translate(W / 2, H / 2); ctx.rotate(t * 0.6);
+      const R = Math.hypot(W, H);
+      cols.forEach((c, i) => { ctx.fillStyle = c; ctx.beginPath(); ctx.moveTo(0, 0); ctx.arc(0, 0, R, i * Math.PI / 2, (i + 1) * Math.PI / 2); ctx.fill(); });
       ctx.restore();
-      const g = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, H * 0.45);
-      g.addColorStop(0, "rgba(255,255,255,.55)"); g.addColorStop(1, "transparent");
+      const g = ctx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, H * 0.3);
+      g.addColorStop(0, "rgba(255,255,255,.35)"); g.addColorStop(1, "transparent");
       ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
     },
     film(t) {
@@ -137,16 +133,17 @@
       }
     },
   };
-  function sample() {
-    const d = ctx.getImageData(0, 0, W, H).data;
+  function sample(sx = 0, sy = 0, sw = W, sh = H) {
+    const d = ctx.getImageData(sx, sy, sw, sh).data;
     let r = 0, g = 0, b = 0, n = 0;
-    for (let i = 0; i < d.length; i += 4 * 53) { r += d[i]; g += d[i + 1]; b += d[i + 2]; n++; }
+    for (let i = 0; i < d.length; i += 4 * 23) { r += d[i]; g += d[i + 1]; b += d[i + 2]; n++; }
     r /= n * 255; g /= n * 255; b /= n * 255;
     const mx = Math.max(r, g, b), mn = Math.min(r, g, b), dd = mx - mn; let h = 0;
     if (dd) h = mx === r ? ((g - b) / dd) % 6 : mx === g ? (b - r) / dd + 2 : (r - g) / dd + 4;
     return [(h * 60 + 360) % 360, dd < 0.04 ? 20 : 100, Math.max(30, Math.min(60, mx * 70))];
   }
-  const hudScene = $("#hudScene"), hudHex = $("#hudHex");
+  const hudScene = $("#hudScene"), hudHex = $("#hudHex"), stageEl = $("#stage");
+  const zones = { L: [50, 100, 50], R: [280, 100, 50], T: [190, 100, 50], B: [350, 100, 50] };
   function hslHex(h, s, l) {
     s /= 100; l /= 100; const k = (n) => (n + h / 30) % 12, a = s * Math.min(l, 1 - l);
     const f = (n) => Math.round(255 * (l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)))));
@@ -218,6 +215,14 @@
         cur = [(cur[0] + dh * 0.3 + 360) % 360, cur[1] + (tg[1] - cur[1]) * 0.3, cur[2] + (tg[2] - cur[2]) * 0.3];
         root.style.setProperty("--glow", `hsl(${cur[0] | 0},${cur[1] | 0}%,${cur[2] | 0}%)`);
         hudHex.textContent = hslHex(cur[0], cur[1], cur[2]);
+        // zones: links, rechts, boven, onder volgen elk hun eigen deel van het beeld
+        const zw = W * 0.22, zh = H * 0.24;
+        const areas = { L: [0, 0, zw, H], R: [W - zw, 0, zw, H], T: [0, 0, W, zh], B: [0, H - zh, W, zh] };
+        for (const k in areas) {
+          const t2 = sample(...areas[k].map((v) => v | 0)), c0 = zones[k], d2 = ((t2[0] - c0[0] + 540) % 360) - 180;
+          zones[k] = [(c0[0] + d2 * 0.35 + 360) % 360, c0[1] + (t2[1] - c0[1]) * 0.35, c0[2] + (t2[2] - c0[2]) * 0.35];
+          stageEl.style.setProperty("--z" + k, `hsl(${zones[k][0] | 0},${zones[k][1] | 0}%,${zones[k][2] | 0}%)`);
+        }
       }
     }
     last = ts;

@@ -398,3 +398,14 @@ h2{font-size:clamp(40px,6vw,76px);font-weight:700}
   .hero-copy{position:relative;z-index:1}
   .scroll-cue{display:none}
 }
+
+/* zone-gloed: elke kant eigen kleur */
+.demo-stage{--zL:#ffd400;--zR:#b100ff;--zT:#00e5ff;--zB:#ff2d55}
+.halo{opacity:.35}
+.zone{position:absolute;border-radius:50%;filter:blur(38px);opacity:.95;pointer-events:none;transition:background .15s linear}
+.zL{left:-14%;top:-6%;width:36%;height:112%;background:var(--zL)}
+.zR{right:-14%;top:-6%;width:36%;height:112%;background:var(--zR)}
+.zT{left:6%;top:-22%;width:88%;height:40%;background:var(--zT)}
+.zB{left:6%;bottom:-24%;width:88%;height:40%;background:var(--zB)}
+.tv{z-index:1}
+@media(max-width:900px){.zone{filter:blur(22px)}.zL{left:-10%}.zR{right:-10%}}
