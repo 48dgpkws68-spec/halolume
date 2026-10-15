@@ -4,128 +4,222 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Halolume · Tv-ledstrip die meekleurt met je beeld</title>
-<meta name="description" content="Halolume tv-ledstrip met kleursensor: je tv-verlichting kleurt mee met film, game en sport. In 5 minuten geplakt. Vanaf €29,99, snel in huis.">
-<meta name="theme-color" content="#07070e">
+<meta name="description" content="Halolume tv-ledstrip met kleursensor: het licht achter je tv kleurt mee met film, game en sport. In 5 minuten geplakt. Vanaf €29,99.">
+<meta name="theme-color" content="#05050c">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:title" content="Halolume · Je tv, maar dan sfeervoller">
 <meta property="og:description" content="Tv-ledstrip die meekleurt met je beeld. Vanaf €29,99.">
-<meta property="og:image" content="https://halolume.nl/assets/icon-512.png">
+<meta property="og:image" content="https://halolume.nl/img/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/halo.css">
 </head>
 <body>
-<div class="bg-glow" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<!-- INTRO-FILM -->
+<div class="intro" aria-hidden="true">
+  <canvas></canvas>
+  <div class="bar"><i></i></div>
+  <button class="skip" type="button">Overslaan ›</button>
+</div>
+
+<canvas id="aurora" aria-hidden="true"></canvas>
+<div class="cursor-glow" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><i></i></div>
 
 <header class="nav" id="nav">
-  <a href="#" class="brand" aria-label="Halolume home"><img src="assets/logo.png" alt="Halolume" height="30"></a>
+  <a href="#" class="brand" aria-label="Halolume home"><img src="assets/logo.png" alt="Halolume" height="28"></a>
   <nav class="links">
-    <a href="#demo">Demo</a>
-    <a href="#hoe">Hoe het werkt</a>
+    <a href="#aan">Licht aan</a>
+    <a href="#demo">Live demo</a>
+    <a href="#ontdek">Ontdek</a>
     <a href="#kopen">Kopen</a>
     <a href="#faq">Vragen</a>
   </nav>
-  <a href="#kopen" class="btn btn-small">Bestel · €29,99</a>
+  <a href="#kopen" class="btn btn-white btn-small">Bestel · €29,99</a>
 </header>
 
 <main>
+
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-media" data-parallax="0.15">
+    <img src="img/hero.webp" alt="Halolume ledstrip met kleursensor en afstandsbediening" fetchpriority="high">
+    <div class="hero-sweep"></div>
+  </div>
   <div class="hero-copy">
     <p class="eyebrow"><span class="dot"></span> Nieuw · voor tv's van 55 tot 75 inch</p>
-    <h1>Je tv,<br><span class="grad">maar dan sfeervoller.</span></h1>
-    <p class="lead">Halolume is een ledstrip voor achter je tv. Een slimme kleursensor leest je scherm en laat het licht op de muur meekleuren met wat je kijkt. Film, game of voetbal: je woonkamer doet mee.</p>
+    <h1 class="split">Je tv,<br><span class="grad">maar dan</span><br><span class="serif">sfeervoller.</span></h1>
+    <p class="lead">Een ledstrip achter je tv met een slimme kleursensor. Het licht op je muur kleurt mee met wat je kijkt.</p>
     <div class="cta-row">
-      <a href="#kopen" class="btn btn-glow">Bestel nu · €29,99</a>
-      <a href="#demo" class="btn btn-ghost">Bekijk de demo</a>
+      <a href="#kopen" class="btn btn-glow magnet">Bestel nu · €29,99</a>
+      <a href="#demo" class="btn btn-ghost magnet">▶ Bekijk live</a>
     </div>
-    <ul class="usp">
-      <li><b>5 min</b> geplakt</li>
-      <li><b>24</b> lichtscènes</li>
-      <li><b>30 dagen</b> retour</li>
+    <ul class="hero-chips">
+      <li>⚡ 5 min geplakt</li><li>🎨 24 scènes</li><li>🎵 Muzieksync</li><li>↩ 30 dagen retour</li>
     </ul>
   </div>
+  <a href="#aan" class="scroll-cue" aria-label="Scroll verder"><span></span></a>
+</section>
 
-  <div class="stage" id="stage">
-    <div class="wall"></div>
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true"><div class="mq-track">
+  <span>FILMAVOND</span><b>✦</b><span>GAMEN</span><b>✦</b><span>VOETBAL</span><b>✦</b><span>MUZIEK</span><b>✦</b><span>WINTERAVONDEN</span><b>✦</b><span>SINTERKLAAS</span><b>✦</b><span>KERST</span><b>✦</b>
+  <span>FILMAVOND</span><b>✦</b><span>GAMEN</span><b>✦</b><span>VOETBAL</span><b>✦</b><span>MUZIEK</span><b>✦</b><span>WINTERAVONDEN</span><b>✦</b><span>SINTERKLAAS</span><b>✦</b><span>KERST</span><b>✦</b>
+</div></div>
+
+<!-- LICHT AAN: scroll-gestuurde sequentie -->
+<section class="lights" id="aan">
+  <div class="lights-sticky">
+    <div class="lights-stage">
+      <img class="room off" src="img/kamer-uit.webp" alt="Woonkamer met tv, ledstrip uit" loading="lazy">
+      <img class="room on" src="img/kamer-aan.webp" alt="Dezelfde woonkamer met Halolume aan" loading="lazy">
+      <div class="lights-vignette"></div>
+    </div>
+    <div class="lights-copy">
+      <p class="eyebrow mono" id="lightsStep">01 / 03</p>
+      <div class="lights-lines">
+        <h2 class="ll active">Gewone tv.<br><span class="muted">Gewone avond.</span></h2>
+        <h2 class="ll">Eén strip.<br><span class="grad">Eén sensor.</span></h2>
+        <h2 class="ll">Je woonkamer<br><span class="serif">doet mee.</span></h2>
+      </div>
+      <div class="lights-meter"><i id="lightsMeter"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="section demo" id="demo">
+  <div class="section-head reveal">
+    <p class="eyebrow">Live demo · dit draait echt</p>
+    <h2>Kies wat je kijkt.<br><span class="grad">Halolume kleurt mee.</span></h2>
+    <p class="sub">De gloed om deze tv wordt live berekend uit de kleuren op het scherm. Zo werkt de sensor van Halolume ook.</p>
+  </div>
+  <div class="demo-stage reveal" id="stage">
+    <div class="demo-wall"></div>
     <div class="tv-wrap">
       <div class="halo" id="halo"></div>
       <div class="tv">
-        <canvas id="screen" width="320" height="180" aria-label="Demo tv-beeld"></canvas>
+        <canvas id="screen" width="480" height="270" aria-label="Demo tv-beeld"></canvas>
         <div class="sensor" title="Kleursensor"></div>
       </div>
       <div class="stand"></div>
     </div>
-    <div class="floor" id="floor"></div>
-    <div class="scene-tag" id="sceneTag">Film</div>
+    <div class="floor"></div>
+    <div class="demo-hud mono"><span id="hudScene">FILM</span><span id="hudHex">#5B6CFF</span><span class="rec">● SYNC</span></div>
   </div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker" aria-hidden="true"><div class="ticker-track">
-  <span>Filmavond</span><span>✦</span><span>Gamen</span><span>✦</span><span>Voetbal</span><span>✦</span><span>Muziek</span><span>✦</span><span>Winteravonden</span><span>✦</span><span>Sinterklaascadeau</span><span>✦</span>
-  <span>Filmavond</span><span>✦</span><span>Gamen</span><span>✦</span><span>Voetbal</span><span>✦</span><span>Muziek</span><span>✦</span><span>Winteravonden</span><span>✦</span><span>Sinterklaascadeau</span><span>✦</span>
-</div></div>
-
-<!-- DEMO -->
-<section class="section" id="demo">
-  <div class="section-head">
-    <p class="eyebrow">Live demo</p>
-    <h2>Kies wat je kijkt.<br><span class="grad">Halolume kleurt mee.</span></h2>
-    <p class="sub">De tv hierboven draait echt: de gloed wordt live berekend uit de kleuren op het scherm. Zo werkt de sensor van Halolume ook.</p>
-  </div>
-  <div class="chips" role="tablist">
+  <div class="chips reveal" role="tablist">
     <button class="chip active" data-scene="film">🎬 Film</button>
     <button class="chip" data-scene="game">🎮 Gamen</button>
     <button class="chip" data-scene="sport">⚽ Voetbal</button>
     <button class="chip" data-scene="music">🎵 Muziek</button>
-    <button class="chip" data-scene="cozy">🕯️ Gezellig</button>
+    <button class="chip" data-scene="cozy">🔥 Haardvuur</button>
   </div>
-  <div class="mode-grid">
-    <article class="mode card">
-      <h3>Sync-modus</h3>
-      <p>De sensor bovenop je tv meet de kleur van het beeld en de strip neemt die direct over. Ideaal voor films en series.</p>
-    </article>
-    <article class="mode card">
-      <h3>Muziekmodus</h3>
-      <p>Een ingebouwde microfoon laat het licht pulseren op het ritme. Zes muziekeffecten, perfect voor een feestje.</p>
-    </article>
-    <article class="mode card">
-      <h3>Sfeermodus</h3>
-      <p>24 vaste scènes of je eigen kleur via de app of de afstandsbediening. Warm wit voor rustige avonden.</p>
-    </article>
+</section>
+
+<!-- VOOR / NA -->
+<section class="section ba-section">
+  <div class="section-head reveal">
+    <p class="eyebrow">Voor & na</p>
+    <h2>Sleep en zie<br><span class="grad">het verschil.</span></h2>
+  </div>
+  <div class="ba reveal" id="ba">
+    <img src="img/kamer-aan.webp" alt="Met Halolume" loading="lazy">
+    <div class="ba-top"><img src="img/kamer-uit.webp" alt="Zonder Halolume" loading="lazy"></div>
+    <div class="ba-handle"><span>⟷</span></div>
+    <span class="ba-tag l">Zonder</span><span class="ba-tag r">Met Halolume</span>
+  </div>
+</section>
+
+<!-- ONTDEK: hotspots -->
+<section class="section" id="ontdek">
+  <div class="section-head reveal">
+    <p class="eyebrow">Ontdek</p>
+    <h2>Klein setje.<br><span class="grad">Groot effect.</span></h2>
+  </div>
+  <div class="hotspots reveal">
+    <img src="img/hero.webp" alt="Onderdelen van Halolume" loading="lazy">
+    <button class="hs" style="left:47%;top:50%" data-t="Kleursensor" data-d="Zet je midden bovenop je tv. Meet de kleur van het beeld en stuurt de strip direct aan."><i></i></button>
+    <button class="hs" style="left:72%;top:28%" data-t="Ledstrip 4 of 5 m" data-d="Zelfklevend en op maat te knippen. Past om tv's van 55 tot 75 inch."><i></i></button>
+    <button class="hs" style="left:66%;top:66%" data-t="Afstandsbediening" data-d="Kleur, helderheid en modus kiezen zonder je telefoon."><i></i></button>
+    <button class="hs" style="left:88%;top:60%" data-t="USB-stroom" data-d="Steek hem in de USB-poort van je tv: gaat aan en uit met je tv."><i></i></button>
+    <div class="hs-card" id="hsCard"><b></b><p></p></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="section stats reveal">
+  <div class="stat"><b data-count="5">0</b><span>minuten installatie</span></div>
+  <div class="stat"><b data-count="24">0</b><span>lichtscènes</span></div>
+  <div class="stat"><b data-count="6">0</b><span>muziekeffecten</span></div>
+  <div class="stat"><b data-count="50000" data-fmt="k">0</b><span>uur levensduur</span></div>
+</section>
+
+<!-- KAMERS: horizontaal scrollen -->
+<section class="rooms" id="kamers">
+  <div class="rooms-sticky">
+    <div class="rooms-head">
+      <p class="eyebrow">Overal sfeer</p>
+      <h2>Eén strip,<br><span class="grad">elke kamer.</span></h2>
+    </div>
+    <div class="rooms-track" id="roomsTrack">
+      <article class="room-card tilt"><img src="img/kamer-aan.webp" alt="Woonkamer met Halolume" loading="lazy"><div><b>Woonkamer</b><p>Filmavond zoals in de bios.</p></div></article>
+      <article class="room-card tilt"><img src="img/gaming.webp" alt="Game-setup met Halolume" loading="lazy"><div><b>Game-setup</b><p>Elke explosie loopt door op je muur.</p></div></article>
+      <article class="room-card tilt"><img src="img/slaapkamer.webp" alt="Slaapkamer met Halolume" loading="lazy"><div><b>Slaapkamer</b><p>Warm wit voor rustige avonden.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- MOOD-KIEZER -->
+<section class="section mood">
+  <div class="mood-card reveal">
+    <div>
+      <p class="eyebrow">Probeer het</p>
+      <h2>Welke sfeer<br><span class="grad">wordt het?</span></h2>
+      <p class="sub">Tik een kleur aan en zie hoe de hele pagina meekleurt. Zo voelt jouw kamer straks.</p>
+    </div>
+    <div class="swatches" id="swatches">
+      <button style="--c:#00e5ff" data-c="#00e5ff" aria-label="IJsblauw"></button>
+      <button style="--c:#5b6cff" data-c="#5b6cff" aria-label="Blauw"></button>
+      <button style="--c:#be46ff" data-c="#be46ff" aria-label="Paars"></button>
+      <button style="--c:#ff3d9a" data-c="#ff3d9a" aria-label="Roze"></button>
+      <button style="--c:#ff4b2b" data-c="#ff4b2b" aria-label="Rood"></button>
+      <button style="--c:#ffa83c" data-c="#ffa83c" aria-label="Amber"></button>
+      <button style="--c:#3dff8a" data-c="#3dff8a" aria-label="Groen"></button>
+      <button style="--c:#ffe3b8" data-c="#ffe3b8" aria-label="Warm wit"></button>
+    </div>
   </div>
 </section>
 
 <!-- HOE -->
 <section class="section" id="hoe">
-  <div class="section-head">
+  <div class="section-head reveal">
     <p class="eyebrow">Installatie</p>
     <h2>In drie stappen klaar.</h2>
   </div>
   <ol class="steps">
-    <li class="card step"><span class="num">01</span><h3>Plakken</h3><p>Plak de strip langs de achterkant van je tv. Te lang? Knip hem op maat bij de markering.</p></li>
-    <li class="card step"><span class="num">02</span><h3>Sensor plaatsen</h3><p>Zet de kleine sensor midden bovenop je scherm, gericht op het beeld.</p></li>
-    <li class="card step"><span class="num">03</span><h3>Aanzetten</h3><p>Stekker via USB of adapter erin, koppel de app en kies je modus. Klaar.</p></li>
+    <li class="card step tilt reveal"><span class="num">01</span><h3>Plakken</h3><p>Plak de strip langs de achterkant van je tv. Te lang? Knip hem op maat bij de markering.</p></li>
+    <li class="card step tilt reveal"><span class="num">02</span><h3>Sensor plaatsen</h3><p>Zet de kleine sensor midden bovenop je scherm, gericht op het beeld.</p></li>
+    <li class="card step tilt reveal"><span class="num">03</span><h3>Aanzetten</h3><p>USB in je tv, koppel de app via Bluetooth en kies je modus.</p></li>
   </ol>
 </section>
 
 <!-- SPECS -->
-<section class="section specs-section">
-  <div class="specs card">
+<section class="section">
+  <div class="specs card reveal">
     <div>
       <p class="eyebrow">Specificaties</p>
-      <h2>Alles wat je moet weten.</h2>
-      <p class="sub">Eerlijk overzicht, zodat je weet wat je koopt.</p>
+      <h2>Eerlijk overzicht.</h2>
+      <p class="sub">Zodat je precies weet wat je koopt.</p>
     </div>
     <dl class="spec-list">
       <div><dt>Lengte</dt><dd>4 m (55 tot 65 inch) of 5 m (65 tot 75 inch)</dd></div>
       <div><dt>Sync</dt><dd>Kleursensor op de tv, neemt de hoofdkleur van het beeld over</dd></div>
       <div><dt>Bediening</dt><dd>App via Bluetooth en afstandsbediening</dd></div>
       <div><dt>Effecten</dt><dd>24 lichtscènes · 6 muziekeffecten</dd></div>
-      <div><dt>Stroom</dt><dd>USB, werkt op de USB-poort van je tv</dd></div>
+      <div><dt>Stroom</dt><dd>USB, via de USB-poort van je tv</dd></div>
       <div><dt>Montage</dt><dd>Zelfklevend, op maat te knippen</dd></div>
     </dl>
   </div>
@@ -133,84 +227,84 @@
 
 <!-- KOPEN -->
 <section class="section" id="kopen">
-  <div class="section-head">
+  <div class="section-head reveal">
     <p class="eyebrow">Bestellen</p>
     <h2>Kies je set.</h2>
-    <p class="sub">Gratis verzending in Nederland en België · betalen met iDEAL, Bancontact of creditcard.</p>
+    <p class="sub">Gratis verzending in Nederland en België · iDEAL, Bancontact of creditcard.</p>
   </div>
-
-  <div class="size-toggle" role="radiogroup" aria-label="Tv-formaat">
+  <div class="size-toggle reveal" role="radiogroup" aria-label="Tv-formaat">
     <button class="size active" data-size="4m" role="radio" aria-checked="true">55 tot 65 inch <small>4 meter</small></button>
     <button class="size" data-size="5m" role="radio" aria-checked="false">65 tot 75 inch <small>5 meter</small></button>
   </div>
-
   <div class="offers">
-    <article class="offer card">
+    <article class="offer card tilt reveal">
+      <img class="offer-img" src="img/hero.webp" alt="" loading="lazy">
       <h3>Halolume</h3>
       <p class="for">Voor je woonkamer</p>
       <p class="price"><span data-price="single">€29,99</span></p>
-      <ul>
-        <li>1 ledstrip met sensor</li>
-        <li>Afstandsbediening</li>
-        <li>Gratis verzending</li>
-      </ul>
+      <ul><li>1 ledstrip met sensor</li><li>Afstandsbediening</li><li>Gratis verzending</li></ul>
       <a class="btn btn-ghost buy" data-pack="single" href="#">In winkelmand</a>
     </article>
-    <article class="offer card featured">
+    <article class="offer card featured tilt reveal">
       <span class="badge">Populairst als cadeau</span>
+      <img class="offer-img" src="img/doos.webp" alt="" loading="lazy">
       <h3>Halolume Duo</h3>
       <p class="for">Woonkamer + slaapkamer of game-setup</p>
       <p class="price"><span data-price="duo">€49,99</span> <small>je bespaart <span data-save>€9,99</span></small></p>
-      <ul>
-        <li>2 ledstrips met sensor</li>
-        <li>2 afstandsbedieningen</li>
-        <li>Gratis verzending</li>
-      </ul>
+      <ul><li>2 ledstrips met sensor</li><li>2 afstandsbedieningen</li><li>Gratis verzending</li></ul>
       <a class="btn btn-glow buy" data-pack="duo" href="#">In winkelmand</a>
     </article>
   </div>
-  <p class="fine">Prijzen inclusief btw. Bestel je voor 1 december, dan heb je hem op tijd voor Sinterklaas.</p>
+  <p class="fine">Prijzen inclusief btw. Bestel voor 1 december, dan heb je hem op tijd voor Sinterklaas.</p>
 </section>
 
 <!-- CADEAU -->
 <section class="section gift">
-  <div class="gift-card card">
+  <div class="gift-card reveal">
+    <img src="img/doos.webp" alt="Halolume cadeauverpakking" loading="lazy">
     <div class="gift-text">
       <p class="eyebrow">Sinterklaas & kerst</p>
-      <h2>Het cadeau dat iedere avond aangaat.</h2>
-      <p class="sub">Voor de gamer, de filmfan of iedereen die het thuis gezellig wil maken. Klein formaat, groot effect.</p>
-      <a href="#kopen" class="btn btn-glow">Bestel als cadeau</a>
+      <h2>Het cadeau dat<br><span class="serif">iedere avond</span> aangaat.</h2>
+      <p class="sub">Voor de gamer, de filmfan of iedereen die het thuis gezellig wil maken.</p>
+      <a href="#kopen" class="btn btn-glow magnet">Bestel als cadeau</a>
     </div>
-    <div class="gift-orb" aria-hidden="true"></div>
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="section" id="faq">
-  <div class="section-head">
+  <div class="section-head reveal">
     <p class="eyebrow">Vragen</p>
     <h2>Goed om te weten.</h2>
   </div>
   <div class="faq">
-    <details class="card"><summary>Werkt het met Netflix en apps op mijn smart-tv?</summary><p>Ja. De sensor kijkt naar het scherm zelf, dus het maakt niet uit waar het beeld vandaan komt: apps, decoder, console of laptop.</p></details>
-    <details class="card"><summary>Kleurt elk stukje van de strip apart mee?</summary><p>Nee. Halolume neemt de hoofdkleur van je beeld over, dus de hele strip kleurt in één keer mee. Dat geeft een rustig en sfeervol effect zonder ingewikkelde camera.</p></details>
-    <details class="card"><summary>Welke maat heb ik nodig?</summary><p>Voor 55 tot 65 inch kies je 4 meter, voor 65 tot 75 inch 5 meter. Meet de omtrek van de achterkant van je tv als je twijfelt. Te lang is geen probleem, de strip is op maat te knippen.</p></details>
-    <details class="card"><summary>Hoe snel heb ik het in huis?</summary><p>We verzenden zo snel mogelijk. De actuele levertijd zie je bij het afrekenen.</p></details>
-    <details class="card"><summary>Kan ik het terugsturen?</summary><p>Je hebt 30 dagen bedenktijd. Lees de voorwaarden op de <a href="retourneren.html">retourpagina</a>.</p></details>
-    <details class="card"><summary>Heb ik wifi nodig?</summary><p>Nee, de app werkt via Bluetooth. Je kunt ook alles met de afstandsbediening doen.</p></details>
+    <details class="card reveal"><summary>Werkt het met Netflix en apps op mijn smart-tv?</summary><p>Ja. De sensor kijkt naar het scherm zelf, dus het maakt niet uit waar het beeld vandaan komt: apps, decoder, console of laptop.</p></details>
+    <details class="card reveal"><summary>Kleurt elk stukje van de strip apart mee?</summary><p>Nee. Halolume neemt de hoofdkleur van je beeld over, dus de hele strip kleurt in één keer mee. Dat geeft een rustig en sfeervol effect.</p></details>
+    <details class="card reveal"><summary>Welke maat heb ik nodig?</summary><p>Voor 55 tot 65 inch kies je 4 meter, voor 65 tot 75 inch 5 meter. Te lang is geen probleem, de strip is op maat te knippen.</p></details>
+    <details class="card reveal"><summary>Hoe snel heb ik het in huis?</summary><p>We verzenden zo snel mogelijk. De actuele levertijd zie je bij het afrekenen.</p></details>
+    <details class="card reveal"><summary>Kan ik het terugsturen?</summary><p>Je hebt 30 dagen bedenktijd. Lees de voorwaarden op de <a href="retourneren.html">retourpagina</a>.</p></details>
+    <details class="card reveal"><summary>Heb ik wifi nodig?</summary><p>Nee, de app werkt via Bluetooth. Je kunt ook alles met de afstandsbediening doen.</p></details>
   </div>
 </section>
+
+<!-- SLOT-CTA -->
+<section class="final">
+  <h2 class="final-word">BEYOND<br>THE FRAME</h2>
+  <a href="#kopen" class="btn btn-glow magnet">Bestel Halolume · €29,99</a>
+</section>
+
 </main>
 
 <footer class="footer">
   <img src="assets/logo.png" alt="Halolume" height="26">
   <p>Halolume is een handelsnaam van 4NEON.</p>
   <nav><a href="contact.html">Contact</a><a href="voorwaarden.html">Voorwaarden</a><a href="privacy.html">Privacy</a><a href="retourneren.html">Retourneren</a></nav>
-  <p class="copy">© 2026 Halolume</p>
+  <p class="copy">© 2026 Halolume · <a href="#" id="replayIntro">Intro opnieuw</a></p>
 </footer>
 
 <div class="sticky-buy" id="stickyBuy"><span>Halolume · <b data-price="single">€29,99</b></span><a href="#kopen" class="btn btn-glow btn-small">Bestellen</a></div>
 
-<script src="app.js"></script>
+<script src="js/intro.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
