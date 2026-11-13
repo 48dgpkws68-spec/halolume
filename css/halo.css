@@ -433,3 +433,5 @@ h2{font-size:clamp(40px,6vw,76px);font-weight:700}
 }
 
 @media(max-width:900px){.legal-body{padding-top:120px}}
+/* uitverkocht (13 nov 2026) */
+.btn-sold{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.62);cursor:not-allowed;box-shadow:none;letter-spacing:.02em}
